@@ -16,8 +16,13 @@
             "polyfills": "apps/store/src/polyfills.ts",
             "tsConfig": "apps/store/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/store/src/favicon.ico", "apps/store/src/assets"],
-            "styles": ["apps/store/src/styles.scss"],
+            "assets": [
+              "apps/store/src/favicon.ico",
+              "apps/store/src/assets"
+            ],
+            "styles": [
+              "apps/store/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -57,12 +62,16 @@
             "proxyConfig": "apps/store/proxy.conf.json"
           },
           "configurations": {
-            "production": { "browserTarget": "store:build:production" }
+            "production": {
+              "browserTarget": "store:build:production"
+            }
           }
         },
         "extract-i18n": {
           "executor": "@angular-devkit/build-angular:extract-i18n",
-          "options": { "browserTarget": "store:build" }
+          "options": {
+            "browserTarget": "store:build"
+          }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
@@ -75,7 +84,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/store"],
+          "outputs": [
+            "coverage/apps/store"
+          ],
           "options": {
             "jestConfig": "apps/store/jest.config.js",
             "passWithNoTests": true
@@ -96,12 +107,18 @@
             "devServerTarget": "store:serve"
           },
           "configurations": {
-            "production": { "devServerTarget": "store:serve:production" }
+            "production": {
+              "devServerTarget": "store:serve:production"
+            }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/store-e2e/**/*.{js,ts}"] }
+          "options": {
+            "lintFilePatterns": [
+              "apps/store-e2e/**/*.{js,ts}"
+            ]
+          }
         }
       }
     },
@@ -122,7 +139,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/store/ui-shared"],
+          "outputs": [
+            "coverage/libs/store/ui-shared"
+          ],
           "options": {
             "jestConfig": "libs/store/ui-shared/jest.config.js",
             "passWithNoTests": true
@@ -150,7 +169,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/store/util-formatters"],
+          "outputs": [
+            "coverage/libs/store/util-formatters"
+          ],
           "options": {
             "jestConfig": "libs/store/util-formatters/jest.config.js",
             "passWithNoTests": true
@@ -175,16 +196,84 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/store/feature-game-detail"],
+          "outputs": [
+            "coverage/libs/store/feature-game-detail"
+          ],
           "options": {
             "jestConfig": "libs/store/feature-game-detail/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
+    },
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
+      "projectType": "application",
+      "prefix": "api",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": [
+              "apps/api/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/api/tsconfig.app.json",
+              "apps/api/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/api/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/api"
+          ],
+          "options": {
+            "jestConfig": "apps/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
-  "cli": { "defaultCollection": "@nrwl/angular" },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
   "generators": {
     "@nrwl/angular:application": {
       "style": "scss",
@@ -197,7 +286,9 @@
       "linter": "eslint",
       "unitTestRunner": "jest"
     },
-    "@nrwl/angular:component": { "style": "scss" }
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
   },
   "defaultProject": "store"
 }

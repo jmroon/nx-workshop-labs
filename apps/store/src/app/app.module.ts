@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
 
 import { StoreUiSharedModule } from '@bg-hoard/store/ui-shared';
 
@@ -25,6 +26,7 @@ import { StoreUiSharedModule } from '@bg-hoard/store/ui-shared';
     ),
     MatCardModule,
     StoreUiSharedModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
