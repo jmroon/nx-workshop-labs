@@ -1,13 +1,18 @@
 {
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "npmScope": "bg-hoard",
   "tasksRunnerOptions": {
     "default": {
@@ -24,19 +29,31 @@
     }
   },
   "projects": {
-    "store": { "tags": ["scope:store", "type:app"] },
+    "api": {
+      "tags": ["scope:api", "type:app"]
+    },
+    "store": {
+      "tags": ["scope:store", "type:app"]
+    },
     "store-e2e": {
       "tags": ["scope:store", "type:e2e"],
       "implicitDependencies": ["store"]
     },
-    "store-ui-shared": { "tags": ["scope:shared", "type:ui"] },
-    "store-util-formatters": { "tags": ["scope:store", "type:util"] },
-    "store-feature-game-detail": { "tags": ["scope:store", "type:feature"] },
-    "api": { "tags": ["scope:api", "type:app"] },
-    "util-interface": { "tags": ["scope:shared", "type:util"] },
+    "store-feature-game-detail": {
+      "tags": ["scope:store", "type:feature"]
+    },
+    "store-ui-shared": {
+      "tags": ["scope:shared", "type:ui"]
+    },
     "store-ui-shared-e2e": {
       "tags": ["scope:store", "type:e2e"],
       "implicitDependencies": ["store-ui-shared"]
+    },
+    "store-util-formatters": {
+      "tags": ["scope:store", "type:util"]
+    },
+    "util-interface": {
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }

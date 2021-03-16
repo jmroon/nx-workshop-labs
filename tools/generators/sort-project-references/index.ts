@@ -24,6 +24,7 @@ function sortObjectKeys(obj: any) {
 }
 
 export default async function (host: Tree, schema: any) {
+  incrementVersion(host);
   sortKeys(host, 'workspace.json');
   sortKeys(host, 'nx.json');
   await formatFiles(host);
