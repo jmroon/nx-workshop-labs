@@ -1,0 +1,38 @@
+{
+  "cli": "nx",
+  "id": "util-lib",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Library name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "directory": {
+      "type": "string",
+      "description": "Top level directory describing scope, with 3 possible values: store, api, shared",
+      "x-prompt": {
+        "message": "What is the scope of the util are you generating",
+        "type": "list",
+        "items": [
+          {
+            "value": "store",
+            "label": "Store"
+          },
+          {
+            "value": "api",
+            "label": "API"
+          },
+          {
+            "value": "shared",
+            "label": "Shared"
+          }
+        ]
+      }
+    }
+  },
+  "required": ["name"]
+}

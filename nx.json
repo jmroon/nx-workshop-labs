@@ -25,7 +25,10 @@
   },
   "projects": {
     "store": { "tags": ["scope:store", "type:app"] },
-    "store-e2e": { "tags": ["scope:store", "type:e2e"], "implicitDependencies": ["store"] },
+    "store-e2e": {
+      "tags": ["scope:store", "type:e2e"],
+      "implicitDependencies": ["store"]
+    },
     "store-ui-shared": { "tags": ["scope:shared", "type:ui"] },
     "store-util-formatters": { "tags": ["scope:store", "type:util"] },
     "store-feature-game-detail": { "tags": ["scope:store", "type:feature"] },
