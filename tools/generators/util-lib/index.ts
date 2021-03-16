@@ -5,12 +5,12 @@ export default async function (host: Tree, schema: any) {
   await libraryGenerator(host, {
     name: `util-${schema.name}`,
     linter: 'tslint',
-    tags: `["scope:${schema.directory}", "type:util"]`
+    directory: schema.directory,
+    tags: `scope:${schema.directory}, type:util`
   });
   await formatFiles(host);
 
   return () => {
-    console.log("hello");
     installPackagesTask(host);
   };
 }
